@@ -67,48 +67,6 @@ $(function() {
 
 
 
-
-    // llff_img = document.getElementById('llff_img');
-    // current_llff_method = "trinerflet";
-    // method_selector_llff = document.getElementById('method_selector_llff');
-    // llff_img_idx = 0;
-    // current_llff_idx = 0;
-    //
-    // llff_imgs_num = {};
-    // llff_imgs_num['fern'] = 3;
-    // llff_imgs_num['flower'] = 5;
-    // llff_imgs_num['fortress'] = 6;
-    // llff_imgs_num['horns'] = 8;
-    //
-    // llff_imgs_num['leaves'] = 4;
-    // llff_imgs_num['orchids'] = 4;
-    // llff_imgs_num['room'] = 6;
-    // llff_imgs_num['trex'] = 7;
-    //
-    //
-    // llffThumbnails = [
-    //     document.getElementById('flower_llff'),
-    //     document.getElementById('fern_llff'),
-    //     document.getElementById('fortress_llff'),
-    //     document.getElementById('horns_llff'),
-    //     document.getElementById('leaves_llff'),
-    //     document.getElementById('orchids_llff'),
-    //     document.getElementById('room_llff'),
-    //     document.getElementById('trex_llff'),
-    // ];
-    // for (var i = 0; i < llffThumbnails.length; i++) {
-    //     llffThumbnails[i].addEventListener('click', change_llff_scene_index.bind(this, i));
-    // }
-    // change_llff_scene_index(current_llff_idx);
-    // method_selector_llff.addEventListener('change',change_method_llff.bind(this))
-    //
-    // llff_prev_button = document.getElementById('llff_prev');
-    // llff_next_button = document.getElementById('llff_next');
-    //
-    // llff_prev_button.addEventListener('click', prev_llff.bind(this));
-    // llff_next_button.addEventListener('click', next_llff.bind(this));
-
-
     // LLFF video
     current_sr_llff_idx = 0;
     sr_video_llff = document.getElementById('sr-video_llff');
