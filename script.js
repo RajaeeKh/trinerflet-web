@@ -66,46 +66,71 @@ $(function() {
     method_selector_sr.addEventListener('change',change_method_sr.bind(this))
 
 
-    llff_img = document.getElementById('llff_img');
-    current_llff_method = "trinerflet";
-    method_selector_llff = document.getElementById('method_selector_llff');
-    llff_img_idx = 0;
-    current_llff_idx = 0;
-
-    llff_imgs_num = {};
-    llff_imgs_num['fern'] = 3;
-    llff_imgs_num['flower'] = 5;
-    llff_imgs_num['fortress'] = 6;
-    llff_imgs_num['horns'] = 8;
-
-    llff_imgs_num['leaves'] = 4;
-    llff_imgs_num['orchids'] = 4;
-    llff_imgs_num['room'] = 6;
-    llff_imgs_num['trex'] = 7;
 
 
-    llffThumbnails = [
-        document.getElementById('flower_llff'),
-        document.getElementById('fern_llff'),
-        document.getElementById('fortress_llff'),
-        document.getElementById('horns_llff'),
-        document.getElementById('leaves_llff'),
-        document.getElementById('orchids_llff'),
-        document.getElementById('room_llff'),
-        document.getElementById('trex_llff'),
+    // llff_img = document.getElementById('llff_img');
+    // current_llff_method = "trinerflet";
+    // method_selector_llff = document.getElementById('method_selector_llff');
+    // llff_img_idx = 0;
+    // current_llff_idx = 0;
+    //
+    // llff_imgs_num = {};
+    // llff_imgs_num['fern'] = 3;
+    // llff_imgs_num['flower'] = 5;
+    // llff_imgs_num['fortress'] = 6;
+    // llff_imgs_num['horns'] = 8;
+    //
+    // llff_imgs_num['leaves'] = 4;
+    // llff_imgs_num['orchids'] = 4;
+    // llff_imgs_num['room'] = 6;
+    // llff_imgs_num['trex'] = 7;
+    //
+    //
+    // llffThumbnails = [
+    //     document.getElementById('flower_llff'),
+    //     document.getElementById('fern_llff'),
+    //     document.getElementById('fortress_llff'),
+    //     document.getElementById('horns_llff'),
+    //     document.getElementById('leaves_llff'),
+    //     document.getElementById('orchids_llff'),
+    //     document.getElementById('room_llff'),
+    //     document.getElementById('trex_llff'),
+    // ];
+    // for (var i = 0; i < llffThumbnails.length; i++) {
+    //     llffThumbnails[i].addEventListener('click', change_llff_scene_index.bind(this, i));
+    // }
+    // change_llff_scene_index(current_llff_idx);
+    // method_selector_llff.addEventListener('change',change_method_llff.bind(this))
+    //
+    // llff_prev_button = document.getElementById('llff_prev');
+    // llff_next_button = document.getElementById('llff_next');
+    //
+    // llff_prev_button.addEventListener('click', prev_llff.bind(this));
+    // llff_next_button.addEventListener('click', next_llff.bind(this));
+
+
+    // LLFF video
+    current_sr_llff_idx = 0;
+    sr_video_llff = document.getElementById('sr-video_llff');
+    curernt_sr_method_llff = "trinerflet";
+    method_selector_sr_llff = document.getElementById('method_selector_llff2');
+
+    llffThumbnailsVid = [
+        document.getElementById('flower_llff2'),
+        document.getElementById('fern_llff2'),
+        document.getElementById('fortress_llff2'),
+        document.getElementById('horns_llff2'),
+        document.getElementById('leaves_llff2'),
+        document.getElementById('orchids_llff2'),
+        document.getElementById('room_llff2'),
+        document.getElementById('trex_llff2'),
     ];
-    for (var i = 0; i < llffThumbnails.length; i++) {
-        llffThumbnails[i].addEventListener('click', change_llff_scene_index.bind(this, i));
+    for (var i = 0; i < llffThumbnailsVid.length; i++) {
+        llffThumbnailsVid[i].addEventListener('click', change_sr_scene_index_llff.bind(this, i));
     }
-    change_llff_scene_index(current_llff_idx);
-    method_selector_llff.addEventListener('change',change_method_llff.bind(this))
+    change_sr_scene_index_llff(current_sr_llff_idx);
 
-    llff_prev_button = document.getElementById('llff_prev');
-    llff_next_button = document.getElementById('llff_next');
-
-    llff_prev_button.addEventListener('click', prev_llff.bind(this));
-    llff_next_button.addEventListener('click', next_llff.bind(this));
-
+    method_selector_sr_llff.addEventListener('change',change_method_sr_llff.bind(this))
     // console.log("Hello world!");
 
 
@@ -200,4 +225,32 @@ function next_llff (event){
     change_llff_scene_index_aux(current_llff_idx);
 }
 
+
+
+
+
+function change_sr_scene_index_llff(idx) {
+    change_sr_scene_index_aux_llff(idx);
+    sr_video_llff.currentTime = 0
+}
+function change_sr_scene_index_aux_llff(idx) {
+    llffThumbnailsVid[idx].classList.add("active-btn");
+    if (current_sr_llff_idx != idx) {
+        llffThumbnailsVid[current_sr_llff_idx].classList.remove("active-btn");
+    }
+    current_sr_llff_idx = idx;
+    sr_video_llff.src = "data/videos/llff/" + llffThumbnailsVid[idx].value + "/" +curernt_sr_method_llff +  ".mp4";
+    sr_video_llff.load();
+}
+
+function change_method_sr_llff (event) {
+    curernt_sr_method_llff = event.target.value
+    tt = sr_video_llff.currentTime;
+    is_paused = sr_video_llff.paused;
+    change_sr_scene_index_aux_llff(current_sr_llff_idx);
+    sr_video_llff.currentTime = tt;
+    if (is_paused) {
+        sr_video_llff.pause();
+    }
+}
 

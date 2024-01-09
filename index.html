@@ -16,20 +16,20 @@
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-<!--    <meta name="google-site-verification" content="sdz4d86QkTWaWHiWkS9mtiln38Bu0wirf94l-z1MkhQ" />-->
+    <meta name="google-site-verification" content="IU_p_Bh23c57bWY86GozeURarZu86wzat37izaia0f4" />
 
 
     <title>TriNeRFLet: A Wavelet Based Multiscale Triplane NeRF Representation</title>
 
     <!-- Google tag (gtag.js) -->
 <!--    <script async src="https://www.googletagmanager.com/gtag/js?id=G-87HN038KJT"></script>-->
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+<!--    <script>-->
+<!--        window.dataLayer = window.dataLayer || [];-->
+<!--        function gtag() { dataLayer.push(arguments); }-->
+<!--        gtag('js', new Date());-->
 
-        // gtag('config', 'G-87HN038KJT');
-    </script>
+<!--        // gtag('config', 'G-87HN038KJT');-->
+<!--    </script>-->
 
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -240,6 +240,9 @@
 
 
         <h2 class="section-header">Blender Super-Resolution Results</h2>
+        <div class="paragraph" style="text-align: center">
+            200x200 to 800x800
+        </div>
         <div class="wrapper" ><select name="" id="method_selector_sr" class="form-control" onfocus='this.size=5;' onblur='this.size=5;' onchange='this.size=5; this.blur();'>
             <option value="sr" >TriNeRFLet Super-Resolution</option>
             <option value="lr" >Low Resolution Input</option>
@@ -305,74 +308,145 @@
         </div>
 
         <h2 class="section-header">LLFF Super-Resolution Results</h2>
+<!--        <div class="paragraph" style="text-align: center">-->
+<!--            189x252 to 756x1008-->
+<!--        </div>-->
 
-        <div class="wrapper" ><select name="" id="method_selector_llff" class="form-control" onfocus='this.size=4;' onblur='this.size=4;' onchange='this.size=4; this.blur();'>
+<!--        <div class="wrapper" ><select name="" id="method_selector_llff" class="form-control" onfocus='this.size=4;' onblur='this.size=4;' onchange='this.size=4; this.blur();'>-->
+<!--            <option value="trinerflet" >TriNeRFLet Super-Resolution</option>-->
+<!--            <option value="nerf_sr" >Nerf-SR</option>-->
+<!--            <option value="gt_lr" >Ground-Truth Low Resolution</option>-->
+<!--            <option value="gt_hr" >Ground-Truth High Resolution</option>-->
+<!--        </select></div>-->
+
+
+<!--        <button class="previous" id="llff_prev">&laquo; Previous View</button>-->
+<!--        <button class="next" id="llff_next" >Next View &raquo;</button>-->
+
+
+
+<!--        <img id="llff_img" src="data/images/llff/flower/trinerflet_0.png" type="image/png"  class="center-image">-->
+
+<!--        <div class="base-row farm-thumbnail-row">-->
+
+<!--            <div class="base-col farm-thumbnail-col">-->
+<!--                <button class="thumbnail-btn" id="flower_llff" value="flower">-->
+<!--                    <img src="data/icons/flower2-svgrepo-com.svg" alt="paper" class="thumbnails" />-->
+<!--                    Flower-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="base-col farm-thumbnail-col">-->
+<!--                <button class="thumbnail-btn" id="fern_llff" value="fern">-->
+<!--                    <img src="data/icons/palm-tree-5-svgrepo-com.svg" alt="paper" class="thumbnails" />-->
+<!--                    Fern-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="base-col farm-thumbnail-col">-->
+<!--                <button class="thumbnail-btn" id="fortress_llff" value="fortress">-->
+<!--                    <img src="data/icons/tower-fortress-svgrepo-com.svg" alt="paper" class="thumbnails" />-->
+<!--                    Fortress-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="base-col farm-thumbnail-col">-->
+<!--                <button class="thumbnail-btn" id="horns_llff" value="horns">-->
+<!--                    <img src="data/icons/horns-svgrepo-com.svg" alt="paper" class="thumbnails" />-->
+<!--                    Horns-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="base-col farm-thumbnail-col">-->
+<!--                <button class="thumbnail-btn" id="leaves_llff" value="leaves">-->
+<!--                    <img src="data/icons/leaves-svgrepo-com.svg" alt="paper" class="thumbnails" />-->
+<!--                    Leaves-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="base-col farm-thumbnail-col">-->
+<!--                <button class="thumbnail-btn" id="orchids_llff" value="orchids">-->
+<!--                    <img src="data/icons/orchid-svgrepo-com.svg" alt="paper" class="thumbnails" />-->
+<!--                    Orchids-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="base-col farm-thumbnail-col">-->
+<!--                <button class="thumbnail-btn" id="room_llff" value="room">-->
+<!--                    <img src="data/icons/meeting-room-svgrepo-com.svg" alt="paper" class="thumbnails" />-->
+<!--                    Room-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="base-col farm-thumbnail-col">-->
+<!--                <button class="thumbnail-btn" id="trex_llff" value="trex">-->
+<!--                    <img src="data/icons/trexrunner-svgrepo-com.svg" alt="paper" class="thumbnails" />-->
+<!--                    Trex-->
+<!--                </button>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <div class="paragraph" style="text-align: center">
+
+
+            378x504 to 1512x2016
+        </div>
+
+        <div class="wrapper" ><select name="" id="method_selector_llff2" class="form-control" onfocus='this.size=2;' onblur='this.size=2;' onchange='this.size=2; this.blur();'>
             <option value="trinerflet" >TriNeRFLet Super-Resolution</option>
-            <option value="nerf_sr" >Nerf-SR</option>
-            <option value="gt_lr" >Ground-Truth Low Resolution</option>
-            <option value="gt_hr" >Ground-Truth High Resolution</option>
+            <option value="lr" >Low Resolution</option>
         </select></div>
 
-<!--        <a href="#" class="previous">&laquo; Previous</a>-->
-        <button class="previous" id="llff_prev">&laquo; Previous View</button>
-<!--        <a href="#" class="next">Next &raquo;</a>-->
-        <button class="next" id="llff_next" >Next View &raquo;</button>
-
-
-
-        <img id="llff_img" src="data/images/llff/flower/trinerflet_0.png" type="image/png"  class="center-image">
+        <video id="sr-video_llff" muted autoplay webkit-playsinline playsinline loop controls class="center-image">
+            <source id="sr-video-src-llff" src="data/videos/llff/fern/it20000-test_hr.mp4" type="video/mp4">
+        </video>
 
         <div class="base-row farm-thumbnail-row">
 
             <div class="base-col farm-thumbnail-col">
-                <button class="thumbnail-btn" id="flower_llff" value="flower">
+                <button class="thumbnail-btn" id="flower_llff2" value="flower">
                     <img src="data/icons/flower2-svgrepo-com.svg" alt="paper" class="thumbnails" />
                     Flower
                 </button>
             </div>
             <div class="base-col farm-thumbnail-col">
-                <button class="thumbnail-btn" id="fern_llff" value="fern">
+                <button class="thumbnail-btn" id="fern_llff2" value="fern">
                     <img src="data/icons/palm-tree-5-svgrepo-com.svg" alt="paper" class="thumbnails" />
                     Fern
                 </button>
             </div>
             <div class="base-col farm-thumbnail-col">
-                <button class="thumbnail-btn" id="fortress_llff" value="fortress">
+                <button class="thumbnail-btn" id="fortress_llff2" value="fortress">
                     <img src="data/icons/tower-fortress-svgrepo-com.svg" alt="paper" class="thumbnails" />
                     Fortress
                 </button>
             </div>
             <div class="base-col farm-thumbnail-col">
-                <button class="thumbnail-btn" id="horns_llff" value="horns">
+                <button class="thumbnail-btn" id="horns_llff2" value="horns">
                     <img src="data/icons/horns-svgrepo-com.svg" alt="paper" class="thumbnails" />
                     Horns
                 </button>
             </div>
             <div class="base-col farm-thumbnail-col">
-                <button class="thumbnail-btn" id="leaves_llff" value="leaves">
+                <button class="thumbnail-btn" id="leaves_llff2" value="leaves">
                     <img src="data/icons/leaves-svgrepo-com.svg" alt="paper" class="thumbnails" />
                     Leaves
                 </button>
             </div>
             <div class="base-col farm-thumbnail-col">
-                <button class="thumbnail-btn" id="orchids_llff" value="orchids">
+                <button class="thumbnail-btn" id="orchids_llff2" value="orchids">
                     <img src="data/icons/orchid-svgrepo-com.svg" alt="paper" class="thumbnails" />
                     Orchids
                 </button>
             </div>
             <div class="base-col farm-thumbnail-col">
-                <button class="thumbnail-btn" id="room_llff" value="room">
+                <button class="thumbnail-btn" id="room_llff2" value="room">
                     <img src="data/icons/meeting-room-svgrepo-com.svg" alt="paper" class="thumbnails" />
                     Room
                 </button>
             </div>
             <div class="base-col farm-thumbnail-col">
-                <button class="thumbnail-btn" id="trex_llff" value="trex">
+                <button class="thumbnail-btn" id="trex_llff2" value="trex">
                     <img src="data/icons/trexrunner-svgrepo-com.svg" alt="paper" class="thumbnails" />
                     Trex
                 </button>
             </div>
         </div>
+
+
 
 
 
