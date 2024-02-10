@@ -105,9 +105,12 @@
 <!--        </h1>-->
 
 
-        <video id="main-video" muted autoplay playsinline loop>
-            <source id="mp4" src="data/videos/ngp_ep0002_rgb.mp4" type="video/mp4">
+<!--        <video id="main-video" muted autoplay playsinline loop class="center-image">-->
+<!--            <source id="mp4" src="data/videos/ngp_ep0002_rgb.mp4" type="video/mp4">-->
+        <video id="main-video" muted autoplay webkit-playsinline playsinline loop  class="center-vid">
+            <source id="demo" src="data/videos/demo.mp4" type="video/mp4">
         </video>
+
 
         <h2 class="section-header">Overview</h2>
         <div class="paragraph">
@@ -141,10 +144,10 @@
                 <img id="pipeline-img2" src="data/images/hre.png" type="image/png">
                 <div class="paragraph" style="text-align: center">
                     <p>
-                        <b>TriNeRFLet super-resolution</b>. Low-resolution TriNeRFLet renders LR images using the
-                        LR version of the wavelet features, and fits them to the given low-resolution images.
-                        High-resolution TriNeRFLet renders HR images using all wavelet levels, and fits them to
-                        HR images from HR-set.
+                        <b>SD-refine process</b> . First, a HR image is rendered.
+                        To improve its quality, noise is added to it and then it is plugged into
+                        Stable Diffusion upscaler with its LR version for conditioning. The result,
+                        which is a refined HR image is added to the HR-set.
                     </p>
                 </div>
             </div>
@@ -152,10 +155,10 @@
                 <img id="pipeline-img3" src="data/images/sr_method.png" type="image/png">
                 <div class="paragraph" style="text-align: center">
                     <p>
-                        <b>SD-refine process</b> . First, a HR image is rendered.
-                        To improve its quality, noise is added to it and then it is plugged into
-                        Stable Diffusion upscaler with its LR version for conditioning. The result,
-                        which is a refined HR image is added to the HR-set.
+                        <b>TriNeRFLet super-resolution</b>. Low-resolution TriNeRFLet renders LR images using the
+                        LR version of the wavelet features, and fits them to the given low-resolution images.
+                        High-resolution TriNeRFLet renders HR images using all wavelet levels, and fits them to
+                        HR images from HR-set.
                     </p>
                 </div>
             </div>

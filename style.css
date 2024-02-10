@@ -616,6 +616,11 @@ input:checked + .slider:before {
     width: 100%;
 }
 
+.center-vid {
+    width: 100%    !important;
+    height: auto   !important;
+}
+
 a {
     text-decoration: none;
     display: inline-block;
