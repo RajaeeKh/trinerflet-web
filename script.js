@@ -15,10 +15,15 @@ $(function() {
 
     curernt_rec_method = "trinerflet";
 
+    video_mode = 'data_compress_5';
+    current_data_idx = 0;
+
     rec_video = document.getElementById('rec-video');
 
 
     method_selector = document.getElementById('method_selector');
+
+    demo_video = document.getElementById('main-video');
 
 
     // farmText = document.getElementById('farm-text');
@@ -91,6 +96,15 @@ $(function() {
     method_selector_sr_llff.addEventListener('change',change_method_sr_llff.bind(this))
     // console.log("Hello world!");
 
+    qualityThumbnails = [
+        document.getElementById('compressed_button'),
+        document.getElementById('original_button'),
+    ];
+    for (var i = 0; i < qualityThumbnails.length; i++) {
+        qualityThumbnails[i].addEventListener('click', reload_all_vids.bind(this, i));
+    }
+    reload_all_vids(0);
+
 
 
 
@@ -109,7 +123,7 @@ function change_rec_scene_index_aux (idx) {
         recThumbnails[current_rec_idx].classList.remove("active-btn");
     }
     current_rec_idx = idx;
-    rec_video.src = "data/videos/3d_rec/"+curernt_rec_method+"/" + recThumbnails[idx].id + ".mp4";
+    rec_video.src = video_mode + "/videos/3d_rec/"+curernt_rec_method+"/" + recThumbnails[current_rec_idx].id + ".mp4";
     rec_video.load();
 }
 
@@ -135,7 +149,7 @@ function change_sr_scene_index_aux (idx) {
         srThumbnails[current_sr_idx].classList.remove("active-btn");
     }
     current_sr_idx = idx;
-    sr_video.src = "data/videos/sr/" + srThumbnails[idx].id + "/" +curernt_sr_method +  ".mp4";
+    sr_video.src = video_mode + "/videos/sr/" + srThumbnails[current_sr_idx].id + "/" +curernt_sr_method +  ".mp4";
     sr_video.load();
 }
 
@@ -162,7 +176,7 @@ function change_llff_scene_index_aux(idx) {
     //     llffThumbnails[current_llff_idx].classList.remove("active-btn");
     // }
     current_llff_idx = idx;
-    llff_img.src = "data/images/llff/" + llffThumbnails[idx].value + "/" + current_llff_method + "_" + llff_img_idx + ".png";
+    llff_img.src = video_mode + "/images/llff/" + llffThumbnails[idx].value + "/" + current_llff_method + "_" + llff_img_idx + ".png";
     // llff_img.load();
 }
 
@@ -197,7 +211,7 @@ function change_sr_scene_index_aux_llff(idx) {
         llffThumbnailsVid[current_sr_llff_idx].classList.remove("active-btn");
     }
     current_sr_llff_idx = idx;
-    sr_video_llff.src = "data/videos/llff/" + llffThumbnailsVid[idx].value + "/" +curernt_sr_method_llff +  ".mp4";
+    sr_video_llff.src = video_mode+ "/videos/llff/" + llffThumbnailsVid[current_sr_llff_idx].value + "/" +curernt_sr_method_llff +  ".mp4";
     sr_video_llff.load();
 }
 
@@ -210,5 +224,38 @@ function change_method_sr_llff (event) {
     if (is_paused) {
         sr_video_llff.pause();
     }
+}
+
+
+function reload_all_vids(data_idx){
+    qualityThumbnails[data_idx].classList.add("active-btn");
+    if (data_idx == 0){
+        tmp_video_mode = 'data_compress_5';
+    }
+    if (data_idx == 1){
+        tmp_video_mode = 'data';
+    }
+
+    if (tmp_video_mode != video_mode){
+        qualityThumbnails[current_data_idx].classList.remove("active-btn");
+        video_mode = tmp_video_mode;
+        current_data_idx = data_idx;
+
+        rec_video.src = video_mode + "/videos/3d_rec/"+curernt_rec_method+"/" + recThumbnails[current_rec_idx].id + ".mp4";
+        rec_video.load();
+
+        sr_video.src = video_mode + "/videos/sr/" + srThumbnails[current_sr_idx].id + "/" +curernt_sr_method +  ".mp4";
+        sr_video.load();
+
+        sr_video_llff.src = video_mode+ "/videos/llff/" + llffThumbnailsVid[current_sr_llff_idx].value + "/" +curernt_sr_method_llff +  ".mp4";
+        sr_video_llff.load();
+
+        demo_video.src = video_mode+ "/videos/demo.mp4";
+        demo_video.load();
+
+
+    }
+
+
 }
 

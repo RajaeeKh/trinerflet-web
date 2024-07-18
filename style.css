@@ -361,6 +361,10 @@ body {
     width: 12%;
 }
 
+.farm-thumbnail-col2{
+    width: 50%;
+}
+
 .bear-thumbnail-row {
     display: inline-block;
     width: 40%;
