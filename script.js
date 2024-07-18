@@ -16,7 +16,7 @@ $(function() {
     curernt_rec_method = "trinerflet";
 
     video_mode = 'data_compress_5';
-    current_data_idx = 0;
+    current_data_idx = 1;
 
     rec_video = document.getElementById('rec-video');
 
@@ -97,13 +97,15 @@ $(function() {
     // console.log("Hello world!");
 
     qualityThumbnails = [
+        document.getElementById('high_compressed_button'),
         document.getElementById('compressed_button'),
         document.getElementById('original_button'),
     ];
     for (var i = 0; i < qualityThumbnails.length; i++) {
         qualityThumbnails[i].addEventListener('click', reload_all_vids.bind(this, i));
     }
-    reload_all_vids(0);
+
+    reload_all_vids(1);
 
 
 
@@ -230,9 +232,12 @@ function change_method_sr_llff (event) {
 function reload_all_vids(data_idx){
     qualityThumbnails[data_idx].classList.add("active-btn");
     if (data_idx == 0){
-        tmp_video_mode = 'data_compress_5';
+        tmp_video_mode = 'data_compress_4';
     }
     if (data_idx == 1){
+        tmp_video_mode = 'data_compress_5';
+    }
+    if (data_idx == 2){
         tmp_video_mode = 'data';
     }
 
