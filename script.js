@@ -9,7 +9,32 @@ $("#rec-video").on('loadedmetadata', function() {
     console.log(this.width, this.height);
 });
 
+
+
 $(function() {
+
+    const isMobile = {
+        Android: function() {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+        },
+        any: function() {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+    };
+
+
     current_rec_idx = 0;
     current_sr_idx = 0;
 
@@ -102,10 +127,12 @@ $(function() {
         document.getElementById('original_button'),
     ];
     for (var i = 0; i < qualityThumbnails.length; i++) {
-        qualityThumbnails[i].addEventListener('click', reload_all_vids.bind(this, i));
+        qualityThumbnails[i].addEventListener('click', reload_all_vids.bind(this, i,false));
     }
 
-    reload_all_vids(1);
+
+    if( isMobile.any() ) reload_all_vids(0,true);
+    else reload_all_vids(1,true);
 
 
 
@@ -229,7 +256,7 @@ function change_method_sr_llff (event) {
 }
 
 
-function reload_all_vids(data_idx){
+function reload_all_vids(data_idx,override_p){
     qualityThumbnails[data_idx].classList.add("active-btn");
     if (data_idx == 0){
         tmp_video_mode = 'data_compress_4';
@@ -241,8 +268,10 @@ function reload_all_vids(data_idx){
         tmp_video_mode = 'data';
     }
 
-    if (tmp_video_mode != video_mode){
-        qualityThumbnails[current_data_idx].classList.remove("active-btn");
+    if ((tmp_video_mode != video_mode) || (override_p==true)){
+        if (tmp_video_mode != video_mode){
+            qualityThumbnails[current_data_idx].classList.remove("active-btn");
+        }
         video_mode = tmp_video_mode;
         current_data_idx = data_idx;
 
